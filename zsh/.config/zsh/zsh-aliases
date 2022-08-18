@@ -26,3 +26,6 @@ alias gitl="git log"
 alias gitc2ane="git commit -a --amend --no-edit"
 alias gitpoh="git push -u origin HEAD"
 alias gitrm="git rebase master"
+
+# PlanetScale
+[ -d "$HOME/.config/planetscale" ] && alias pscale="docker run -e HOME=/tmp -v $HOME/.config/planetscale:/tmp/.config/planetscale --user $(id -u):$(id -g) --rm -it -p 3306:3306/tcp planetscale/pscale:latest"
