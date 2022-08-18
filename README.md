@@ -1,0 +1,11 @@
+# PERSONAL DOTFILES
+
+## REQUIREMENTS
+
+1. GNU Stow
+
+## INSTALL
+
+```
+stow */
+```

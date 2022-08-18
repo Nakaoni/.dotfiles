@@ -1,0 +1,28 @@
+#!/bin/sh
+
+#alias dir='dir --color=auto'
+#alias vdir='vdir --color=auto'
+
+# grep
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# ls
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# nvim config
+alias nvimrc="nvim ~/.config/nvim"
+
+# git
+alias gitc="git checkout"
+alias gitm="gitc master"
+alias gitfpm="git fetch origin && git pull origin master"
+alias gits="git status"
+alias gitl="git log"
+alias gitc2ane="git commit -a --amend --no-edit"
+alias gitpoh="git push -u origin HEAD"
+alias gitrm="git rebase master"
