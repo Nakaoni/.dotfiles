@@ -18,3 +18,10 @@ dap.configurations.php = {
         log = '$HOME/.logs/phpDebug.log'
     }
 }
+
+local status_ui_ok, dapui = pcall(require, "dapui")
+if not status_ui_ok then
+    return
+end
+
+dapui.setup()
