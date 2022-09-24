@@ -175,6 +175,10 @@ return require("packer").startup(function(use)
         "mfussenegger/nvim-dap",
         commit = "3b5e4b77e81451db4c83fb3ee4aeb89711a8b539",
     })
+    use({
+        "rcarriga/nvim-dap-ui",
+        tag = "v1.*",
+    })
 
     use({
         "phpactor/phpactor",
