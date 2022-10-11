@@ -182,6 +182,12 @@ return require("packer").startup(function(use)
         run = "composer install"
     })
 
+    use({
+        "xdebug/vscode-php-debug",
+        tag = "v1,*",
+        run = "npm install && npm run build"
+    })
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then

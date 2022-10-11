@@ -66,9 +66,12 @@ local servers = {
     },
     html = {},
     cssls = {},
-    eslint = {},
+    -- eslint = {},
     jsonls = {},
     yamlls = {
+        on_attach = function(client)
+            vim.cmd("set shiftwidth=4")
+        end,
         filetypes = { "yaml", "yml", "yaml.dist", "yml.dist" },
         settings = {
             format = {
@@ -82,6 +85,7 @@ local servers = {
     tsserver = {
         on_attach = function(client)
             loadDefaultConfig(client)
+            vim.cmd("set shiftwidth=2")
         end,
         settings = {
             typescript = {

@@ -66,6 +66,15 @@ keymap("n", "<leader>gr", ":Gitsigns reset_hunk<CR>", opts)
 keymap("n", "<leader>gp", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<leader>gn", ":Gitsigns next_hunk<CR>", opts)
 
+-- Dap mapping
+keymap("n", "<leader>db", ":DapToggleBreakpoint<CR>", opts)
+keymap("n", "<leader>dc", ":DapContine<CR>", opts)
+keymap("n", "<leader>dt", ":DapTerminate<CR>", opts)
+keymap("n", "<leader>do", ":lua require('dapui').toggle()<CR>", opts)
+keymap("n", "<leader>dsi", ":DapStepInto<CR>", opts)
+keymap("n", "<leader>dso", ":DapStepOver<CR>", opts)
+keymap("n", "<leader>dsu", ":DapStepOut<CR>", opts)
+
 -- Visual mode
 
 keymap("v", "<A-j>", ":m .+1<CR>", opts)

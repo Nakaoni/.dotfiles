@@ -31,7 +31,7 @@ lualine.setup({
     },
     sections = {
         lualine_a = { branch },
-        lualine_b = { 'filename', 'diff', 'diagnostics' },
+        lualine_b = { { 'filename', path = 1 }, 'diff', 'diagnostics' },
         lualine_c = {},
         lualine_x = {},
         lualine_y = { { "location", padding = 1 } },

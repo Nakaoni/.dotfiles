@@ -15,7 +15,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # nvim config
-alias nvimrc="nvim ~/.config/nvim"
+alias nvimrc="nvim ~/.dotfiles/nvim"
 
 # git
 alias gitc="git checkout"
@@ -27,5 +27,15 @@ alias gitc2ane="git commit -a --amend --no-edit"
 alias gitpoh="git push -u origin HEAD"
 alias gitrm="git rebase master"
 
-# PlanetScale
-[ -d "$HOME/.config/planetscale" ] && alias pscale="docker run -e HOME=/tmp -v $HOME/.config/planetscale:/tmp/.config/planetscale --user $(id -u):$(id -g) --rm -it -p 3306:3306/tcp planetscale/pscale:latest"
+# JOBs
+alias mlpdev="ssh erwin@185.34.32.171"
+alias mlpstaging="ssh -A mylittle@myboxpp.octopuce.fr"
+alias mlpsuper="ssh migsylius@myboxpp.octopuce.fr" 
+alias mlpweb7='ssh -A -p 2008 mylittle@mylittle.octopuce.fr'
+alias mlpweb8='ssh -A -p 2009 mylittle@mylittle.octopuce.fr'
+alias mlpweb9="ssh -A -p 2010 mylittle@mylittle.octopuce.fr"
+alias mlpweb10="ssh -A -p 2011 mylittle@mylittle.octopuce.fr"
+alias myvarjp8="ssh -A mylittle@myvarjp8.octopuce.fr"
+alias myvarjp9="ssh -A mylittle@myvarjp9.octopuce.fr"
+alias mypreprod="ssh -A mylittle@mypreprod.octopuce.fr"
+alias scpdev="erwin@185.34.32.171:www/"
