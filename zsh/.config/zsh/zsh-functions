@@ -31,3 +31,8 @@ function zsh_add_completion() {
 	completion_file="$(basename "${completion_file_path}")"
 	if [ "$2" = true ] && compinit "${completion_file:1}"
 }
+
+function load_ssh_key() {
+    eval $(ssh-agent)
+    ssh-add $1
+}
