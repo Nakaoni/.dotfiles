@@ -21,11 +21,15 @@ alias nvimrc="nvim ~/.config/nvim"
 alias gitc="git checkout"
 alias gitm="gitc master"
 alias gitfpm="git fetch origin && git pull origin master"
+alias gitdp="git checkout develop && git pull origin"
 alias gits="git status"
 alias gitl="git log"
 alias gitc2ane="git commit -a --amend --no-edit"
 alias gitpoh="git push -u origin HEAD"
 alias gitrm="git rebase master"
+
+# load ssh key
+alias naka=load_ssh_key $HOME/.ssh/id_rsa_naka
 
 # PlanetScale
 [ -d "$HOME/.config/planetscale" ] && alias pscale="docker run -e HOME=/tmp -v $HOME/.config/planetscale:/tmp/.config/planetscale --user $(id -u):$(id -g) --rm -it -p 3306:3306/tcp planetscale/pscale:latest"
