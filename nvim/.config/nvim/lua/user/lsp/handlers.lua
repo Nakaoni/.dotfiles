@@ -30,9 +30,8 @@ M.setup = function()
     vim.api.nvim_set_keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     vim.api.nvim_set_keymap("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
     vim.api.nvim_set_keymap("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-    -- vim.api.nvim_set_keymap("n", "<leader>d", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+    vim.api.nvim_set_keymap("n", "<leader>l", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
     vim.api.nvim_set_keymap("n", "<leader>ss", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-
     vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
@@ -43,6 +42,7 @@ M.setup = function()
 end
 
 local function lsp_keymaps(bufnr)
+    print('in buf', bufnr)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -64,6 +64,6 @@ if not status_ok then
     return
 end
 
-M.capabitilies = cmp_nvim_lsp.update_capabilities(capabitilies)
+M.capabitilies = cmp_nvim_lsp.default_capabilities(capabitilies)
 
 return M

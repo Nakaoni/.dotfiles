@@ -16,7 +16,7 @@ local handlers = require("user.lsp.handlers")
 handlers.setup()
 
 local function loadDefaultConfig(client)
-    if client.resolved_capabilities.document_formatting then
+    if client.server_capabilities.documentFormattingProvider then
         vim.cmd([[
             augroup LspFormatting
                 autocmd! * <buffer>
@@ -53,7 +53,6 @@ local servers = {
     emmet_ls = {
         filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "twig" },
     },
-    volar = {},
     intelephense = {
         on_attach = function(client)
             loadDefaultConfig(client)
@@ -69,7 +68,7 @@ local servers = {
     eslint = {},
     jsonls = {},
     yamlls = {
-        filetypes = { "yaml", "yml", "yaml.dist", "yml.dist" },
+        filetypes = { "yaml", "yml" },
         settings = {
             format = {
                 enable = true,
@@ -102,5 +101,3 @@ local servers = {
 for server, setup_config in pairs(servers) do
     lspconfig[server].setup(setup_config)
 end
-
--- require("user.lsp.null-ls")

@@ -41,7 +41,7 @@ local kind_icons = {
 cmp.setup({
     snippet = {
         expand = function(args)
-            require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+            luasnip.lsp_expand(args.body) -- For `luasnip` users.
         end,
     },
     mapping = {
@@ -57,8 +57,8 @@ cmp.setup({
         }),
         -- Accept currently selected item.
         -- Set `select` to `false` to only confirm explicitly selected items.
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
     },
     formatting = {
         fields = { "kind", "abbr", "menu" },
