@@ -1,9 +1,9 @@
-local status_ok, bufferline = pcall(require, "bufferline")
-if not status_ok then
-    return
-end
+-- vim-bbye
+local keymap = vim.api.nvim_set_keymap
+keymap("n", "<leader>q", ":Bdelete<CR>", { noremap = true, silent = true })
+keymap("n", "<leader>Q", ":Bdelete!<CR>", { noremap = true, silent = true })
 
-bufferline.setup {
+require("bufferline").setup {
     options = {
         numbers = "ordinal", -- | "none" | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
         close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
