@@ -10,7 +10,7 @@ local on_attach = function(client, bufnr)
             buffer = bufnr,
             callback = function()
                 vim.lsp.buf.format({ bufnr = bufnr })
-            end
+            end,
         })
     end
 end
@@ -19,14 +19,15 @@ null_ls.setup({
     sources = {
         null_ls.builtins.diagnostics.phpstan,
         null_ls.builtins.diagnostics.phpcs.with({
-            extra_args = { "--standard=PSR12" }
+            extra_args = { "--standard=PSR12" },
         }),
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.rome,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.phpcbf.with({
-            extra_args = { "--standard=PSR12" }
+            extra_args = { "--standard=PSR12" },
         }),
+        null_ls.builtins.formatting.gofumpt,
     },
-    on_attach = on_attach
+    on_attach = on_attach,
 })
