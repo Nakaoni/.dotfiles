@@ -84,6 +84,12 @@ local servers = {
             },
         },
     },
+    tailwindcss = {
+        on_attach = on_attach,
+    },
+    rust_analyzer = {
+        on_attach = on_attach,
+    },
 }
 
 for server, config in pairs(servers) do
