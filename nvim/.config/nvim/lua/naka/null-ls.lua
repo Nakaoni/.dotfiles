@@ -28,6 +28,7 @@ null_ls.setup({
             extra_args = { "--standard=PSR12" },
         }),
         null_ls.builtins.formatting.gofumpt,
+        null_ls.builtins.formatting.rustfmt,
     },
     on_attach = on_attach,
 })

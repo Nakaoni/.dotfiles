@@ -14,4 +14,9 @@ telescope.setup({
         selection_caret = " ",
         path_display = { "absolute" },
     },
+    pickers = {
+        find_files = {
+            find_command = { "rg", "--files", "-uu", "-g", "!.git", "-g", "!var" },
+        },
+    },
 })
