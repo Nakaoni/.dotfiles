@@ -90,6 +90,9 @@ local servers = {
     rust_analyzer = {
         on_attach = on_attach,
     },
+    prismals = {
+        on_attach = on_attach,
+    },
 }
 
 for server, config in pairs(servers) do

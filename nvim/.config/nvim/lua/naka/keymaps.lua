@@ -6,8 +6,6 @@ local keymap = vim.api.nvim_set_keymap
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
--- NORMAL MODE
-
 -- Window split creation
 keymap("n", "<leader>h", ":split<CR>", opts)
 keymap("n", "<leader>v", ":vsplit<CR>", opts)
@@ -35,7 +33,9 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>", opts)
 
--- VISUAL MODE
-
 keymap("v", "<A-j>", ":m .+1<CR>", opts)
 keymap("v", "<A-k>", ":m .-2<CR>", opts)
+
+-- Terminal
+keymap("n", "<leader>T", ":terminal<CR>", opts)
+keymap("t", "<leader>T", "<C-\\><C-n>", opts)

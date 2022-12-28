@@ -4,12 +4,7 @@ if not status_ok then
 end
 
 -- Keymaps
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>m",
-    ":NvimTreeToggle<CR>",
-    { noremap = true, silent = true }
-)
+vim.api.nvim_set_keymap("n", "<leader>m", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 nvim_tree.setup({
     create_in_closed_folder = true,
@@ -21,7 +16,7 @@ nvim_tree.setup({
         show_on_dirs = true,
     },
     git = {
-        ignore = false
+        ignore = false,
     },
     view = {
         adaptive_size = true,
@@ -47,7 +42,7 @@ nvim_tree.setup({
                     empty_open = "",
                     symlink = "",
                 },
-            }
-        }
+            },
+        },
     },
 })

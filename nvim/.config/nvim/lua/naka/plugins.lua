@@ -84,7 +84,7 @@ return packer.startup(function(use)
             { "nvim-lua/plenary.nvim" },
             { "BurntSushi/ripgrep" },
             { "sharkdp/fd" },
-        }
+        },
     })
 
     -- Autopairs
