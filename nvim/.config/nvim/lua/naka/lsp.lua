@@ -36,7 +36,7 @@ local on_attach = function(_, bufnr)
     end, bufopts)
 end
 
-local servers = {
+--[[ local servers = {
     sumneko_lua = {
         on_attach = on_attach,
         settings = {
@@ -97,4 +97,4 @@ local servers = {
 
 for server, config in pairs(servers) do
     lspconfig[server].setup(config)
-end
+end ]]

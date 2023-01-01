@@ -72,6 +72,7 @@ return packer.startup(function(use)
     use({ "hrsh7th/nvim-cmp" })
 
     use({ "williamboman/mason.nvim" })
+    use({ "williamboman/mason-lspconfig.nvim" })
 
     -- Snippets
     use({ "L3MON4D3/LuaSnip" })
