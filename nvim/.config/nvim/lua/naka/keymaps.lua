@@ -38,4 +38,4 @@ keymap("v", "<A-k>", ":m .-2<CR>", opts)
 
 -- Terminal
 keymap("n", "<leader>T", ":terminal<CR>", opts)
-keymap("t", "<leader>T", "<C-\\><C-n>", opts)
+keymap("t", "<Esc>", "<C-\\><C-n>", opts)
