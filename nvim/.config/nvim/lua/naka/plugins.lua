@@ -74,7 +74,9 @@ return packer.startup(function(use)
     use({ "williamboman/mason.nvim" })
 
     -- Snippets
-    use({ "L3MON4D3/LuaSnip" })
+    use({ "L3MON4D3/LuaSnip", requires = {
+        "rafamadriz/friendly-snippets",
+    } })
     use({ "saadparwaiz1/cmp_luasnip" })
 
     -- Fuzzy finder

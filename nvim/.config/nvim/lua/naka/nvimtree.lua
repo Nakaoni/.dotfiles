@@ -7,7 +7,6 @@ end
 vim.api.nvim_set_keymap("n", "<leader>m", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 nvim_tree.setup({
-    create_in_closed_folder = true,
     update_focused_file = {
         enable = true,
     },
