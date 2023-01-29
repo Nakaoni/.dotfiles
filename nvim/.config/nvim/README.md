@@ -4,7 +4,7 @@ Configuration files
 Based on [LunarVim configuration](https://github.com/LunarVim/Neovim-from-scratch)
 
 ## Requirements:
-- Neovim >=0.7
+- Neovim >=0.8
 - tree-sitter >= 0.20
 - ripgrep >= 13.0
 - node >=14.0
