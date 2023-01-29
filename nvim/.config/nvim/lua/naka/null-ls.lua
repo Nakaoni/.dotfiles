@@ -29,6 +29,10 @@ null_ls.setup({
         }),
         null_ls.builtins.formatting.gofumpt,
         null_ls.builtins.formatting.rustfmt,
+        null_ls.builtins.formatting.rustfmt,
+        null_ls.builtins.formatting.clang_format.with({
+            extra_args = { "-style=Chromium" },
+        }),
     },
     on_attach = on_attach,
 })
