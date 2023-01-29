@@ -108,6 +108,8 @@ return packer.startup(function(use)
     -- Linter / Formatter
     use({ "jose-elias-alvarez/null-ls.nvim" })
 
+    use({ "phpactor/phpactor", run = "composer install --no-dev -o" })
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
