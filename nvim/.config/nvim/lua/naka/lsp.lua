@@ -36,8 +36,8 @@ local on_attach = function(_, bufnr)
     end, bufopts)
 end
 
---[[ local servers = {
-    sumneko_lua = {
+local servers = {
+    lua_ls = {
         on_attach = on_attach,
         settings = {
             Lua = {
@@ -91,6 +91,9 @@ end
         on_attach = on_attach,
     },
     prismals = {
+        on_attach = on_attach,
+    },
+    jdtls = {
         on_attach = on_attach,
     },
 }

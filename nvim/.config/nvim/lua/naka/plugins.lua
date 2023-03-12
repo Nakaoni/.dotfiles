@@ -1,7 +1,8 @@
 local fn = vim.fn
 
 -- Auto install packer.nvim when cloned
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_base_path = fn.stdpath("data") .. "/site/pack/packer/start"
+local install_path = install_base_path .. "/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
     PACKER_BOOTSTRAP = fn.system({
@@ -75,7 +76,9 @@ return packer.startup(function(use)
     use({ "williamboman/mason-lspconfig.nvim" })
 
     -- Snippets
-    use({ "L3MON4D3/LuaSnip" })
+    use({ "L3MON4D3/LuaSnip", requires = {
+        "rafamadriz/friendly-snippets",
+    } })
     use({ "saadparwaiz1/cmp_luasnip" })
 
     -- Fuzzy finder
@@ -83,7 +86,10 @@ return packer.startup(function(use)
         "nvim-telescope/telescope.nvim",
         requires = {
             { "nvim-lua/plenary.nvim" },
-            { "BurntSushi/ripgrep" },
+            {
+                "BurntSushi/ripgrep",
+                run = "cargo build --release",
+            },
             { "sharkdp/fd" },
         },
     })
@@ -102,6 +108,8 @@ return packer.startup(function(use)
 
     -- Linter / Formatter
     use({ "jose-elias-alvarez/null-ls.nvim" })
+
+    use({ "phpactor/phpactor", run = "composer install --no-dev -o" })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

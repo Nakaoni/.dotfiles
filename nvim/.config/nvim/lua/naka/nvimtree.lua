@@ -4,7 +4,10 @@ if not status_ok then
 end
 
 -- Keymaps
-vim.api.nvim_set_keymap("n", "<leader>m", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>m", ":NvimTreeToggle<CR>", {
+    noremap = true,
+    silent = true,
+})
 
 nvim_tree.setup({
     update_focused_file = {
