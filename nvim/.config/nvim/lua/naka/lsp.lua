@@ -37,7 +37,7 @@ local on_attach = function(_, bufnr)
 end
 
 local servers = {
-    sumneko_lua = {
+    lua_ls = {
         on_attach = on_attach,
         settings = {
             Lua = {
