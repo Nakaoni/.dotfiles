@@ -1,118 +1,126 @@
-local fn = vim.fn
-
--- Auto install packer.nvim when cloned
-local install_base_path = fn.stdpath("data") .. "/site/pack/packer/start"
-local install_path = install_base_path .. "/packer.nvim"
-
-if fn.empty(fn.glob(install_path)) > 0 then
-    PACKER_BOOTSTRAP = fn.system({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
         "git",
         "clone",
-        "--depth",
-        "1",
-        "https://github.com/wbthomason/packer.nvim",
-        install_path,
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
     })
-    print("Installing packer close and reopen Neovim...")
-    vim.cmd([[packadd packer.nvim]])
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-    return
-end
-
-return packer.startup(function(use)
-    -- Package Manager
-    use("wbthomason/packer.nvim")
-
+require("lazy").setup({
     -- Colorscheme
-    use({
+    {
         "rose-pine/neovim",
-        as = "rose-pine",
-        tag = "v1.*",
-    })
+        name = "rose-pine",
+        version = "v1.*",
+        priority = 1000,
+        config = function()
+            require("rose-pine").setup({
+                dark_variant = "moon",
+                disable_italics = true,
+            })
 
-    -- Tree-sitter
-    use({
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
-    })
-
-    -- Comments
-    use({
-        "numToStr/Comment.nvim",
-    })
-
-    -- Status line
-    use({
-        "nvim-lualine/lualine.nvim",
-    })
-    use({
-        "arkav/lualine-lsp-progress",
-    })
-
-    -- File explorer
-    use({ "nvim-tree/nvim-web-devicons" })
-    use({ "nvim-tree/nvim-tree.lua" })
-
-    -- LSP / Completion
-    use({ "neovim/nvim-lspconfig" })
-    use({ "hrsh7th/cmp-nvim-lsp" })
-    use({ "hrsh7th/cmp-buffer" })
-    use({ "hrsh7th/cmp-path" })
-    use({ "hrsh7th/cmp-cmdline" })
-    use({ "hrsh7th/nvim-cmp" })
-
-    use({ "williamboman/mason.nvim" })
-
-    -- Snippets
-    use({ "L3MON4D3/LuaSnip", requires = {
-        "rafamadriz/friendly-snippets",
-    } })
-    use({ "saadparwaiz1/cmp_luasnip" })
+            vim.cmd([[colorscheme rose-pine]])
+        end,
+    },
 
     -- Fuzzy finder
-    use({
+    {
         "nvim-telescope/telescope.nvim",
-        requires = {
-            { "nvim-lua/plenary.nvim" },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
             {
                 "BurntSushi/ripgrep",
-                run = "cargo build --release",
+                build = "cargo build --release",
             },
-            { "sharkdp/fd" },
+            "nvim-telescope/telescope-live-grep-args.nvim",
         },
-    })
+    },
+
+    -- Tree-sitter
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+    },
 
     -- Autopairs
-    use({ "windwp/nvim-autopairs" })
+    { "windwp/nvim-autopairs" },
 
-    -- Tabs
-    use({ "akinsho/bufferline.nvim" })
-    use({ "moll/vim-bbye" })
-    use({ "lukas-reineke/indent-blankline.nvim" })
+    -- file tree explorer
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        version = "2.*",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        },
+    },
 
-    -- DAP
-    use({ "mfussenegger/nvim-dap" })
-    use({ "rcarriga/nvim-dap-ui" })
+    -- Comment
+    {
+        "numToStr/Comment.nvim",
+        config = function()
+            require("Comment").setup()
+        end,
+    },
 
-    -- Linter / Formatter
-    use({ "jose-elias-alvarez/null-ls.nvim" })
+    -- buffer line
+    {
+        "akinsho/bufferline.nvim",
+        version = "4.*",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+    },
 
-    use({ "phpactor/phpactor", run = "composer install --no-dev -o" })
+    {
+        "nvim-lualine/lualine.nvim",
+        version = "4.*",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+    },
 
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if PACKER_BOOTSTRAP then
-        packer.sync()
-    end
-end)
+    "lukas-reineke/indent-blankline.nvim",
+
+    {
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v2.x",
+        dependencies = {
+            -- LSP Support
+            { "neovim/nvim-lspconfig" }, -- Required
+            {
+                -- Optional
+                "williamboman/mason.nvim",
+                build = function()
+                    pcall(vim.cmd, "MasonUpdate")
+                end,
+            },
+            { "williamboman/mason-lspconfig.nvim" }, -- Optional
+
+            -- Autocompletion
+            "hrsh7th/nvim-cmp",     -- Required
+            "hrsh7th/cmp-nvim-lsp", -- Required
+            "L3MON4D3/LuaSnip",     -- Required
+            "rafamadriz/friendly-snippets",
+        }
+    },
+
+    {
+        "jay-babu/mason-null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "jose-elias-alvarez/null-ls.nvim",
+        },
+    },
+
+    -- Debug Adapter Protocol
+    { "mfussenegger/nvim-dap" },
+    { "rcarriga/nvim-dap-ui" },
+})

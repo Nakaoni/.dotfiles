@@ -5,11 +5,13 @@ neo_tree.setup({
         width = 50,
         mappings = {
             ["o"] = "open",
+            ["<BS>"] = "close_node",
         },
     },
     filesystem = {
         filtered_items = {
             visible = true,
-        }
-    }
+        },
+        follow_current_file = true,
+    },
 })
