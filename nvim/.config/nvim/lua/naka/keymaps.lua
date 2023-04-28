@@ -1,10 +1,13 @@
 local opts = { noremap = true, silent = true }
 
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 -- Remap leader keymap to comma
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
+
+-- Explorer
+keymap("n", "<leader>m", ":NeoTreeFocusToggle<CR>", opts)
 
 -- Window split creation
 keymap("n", "<leader>h", ":split<CR>", opts)
@@ -28,6 +31,10 @@ keymap("n", "<leader>/", ":noh<CR>", opts)
 -- Switch buffer
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
+
+-- Close buffer
+keymap("n", "<leader>q", ":bdelete<CR>", { noremap = true, silent = true })
+keymap("n", "<leader>Q", ":bdelete!<CR>", { noremap = true, silent = true })
 
 -- Move text
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>", opts)

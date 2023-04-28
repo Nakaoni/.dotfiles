@@ -40,10 +40,11 @@ vo.incsearch = true
 vo.splitbelow = true
 vo.splitright = true
 
-vo.termguicolors = true
-
 -- Enable mouse
 vo.mouse = "a"
 
 -- clipboard
 vo.clipboard = { "unnamed", "unnamedplus" }
+
+-- global status line
+vo.laststatus = 3
