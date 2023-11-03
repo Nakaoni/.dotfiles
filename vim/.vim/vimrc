@@ -1,0 +1,136 @@
+" Get the defaults that most users want.
+source $VIMRUNTIME/defaults.vim
+
+" =============
+" :help options
+" =============
+" show the mode
+set showmode
+
+" file encoding
+set fileencoding=utf-8
+
+" number lines
+set number
+set relativenumber
+set numberwidth=4
+
+" chars to remove
+set list
+set lcs=tab:>>,trail:~,nbsp:+
+
+" tab behavior
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+
+" indent
+set autoindent
+
+" line
+set cursorline
+
+" swap file
+set noswapfile
+
+" scroll behavior
+set scrolloff=10
+set sidescrolloff=10
+
+" search
+set ignorecase
+set hlsearch
+set incsearch
+
+" split
+set splitbelow
+set splitright
+
+" Enable mouse
+set mouse=a
+
+" clipboard
+set clipboard=unnamed,unnamedplus
+
+" global status line
+set laststatus=1
+
+" Limit line texts
+set textwidth=120
+
+" =============
+" :help keymap
+" ============
+let g:mapleader = ","
+let g:maplocalleader = ","
+
+" Explorer
+nnoremap <silent> <leader>m :NERDTreeToggle<CR>
+
+" Window split creation
+nnoremap <silent> <leader>h :split<CR>
+nnoremap <silent> <leader>v :vsplit<CR>
+
+" Window navigation
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-j> <C-w>j
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-l> <C-w>l
+
+" Window resize
+nnoremap <silent> <C-Up> :resize -2<CR>
+nnoremap <silent> <C-Down> :resize +2<CR>
+nnoremap <silent> <C-left> :vertical resize -2<CR>
+nnoremap <silent> <C-Right> :vertical resize +2<CR>
+
+" Hide highlight search
+nnoremap <silent> <leader>/ :noh<CR>
+
+" Switch buffer
+nnoremap <silent> <S-h> :bprevious<CR>
+nnoremap <silent> <S-l> :bnext<CR>
+
+" Close buffer
+nnoremap <silent> <leader>q :bdelete<CR>
+nnoremap <silent> <leader>Q :bdelete!<CR>
+
+" Move text
+nnoremap <silent> <A-j> <Esc>:m .+1<CR>
+nnoremap <silent> <A-k> <Esc>:m .-2<CR>
+vnoremap <silent> <A-j> :m .+1<CR>
+vnoremap <silent> <A-k> :m .-2<CR>
+
+" =============
+" :help colorscheme
+" ============
+set background=dark
+colorscheme rosepine_moon
+
+
+" =============
+" :help termcap-cursor-shape
+" ============
+let &t_SI="\e[5 q"
+let &t_SR="\e[4 q"
+let &t_EI="\e[1 q"
+
+" =============
+" :help ale
+" ============
+" Linters
+let g:ale_fixers={
+\   '*': ["remove_trailing_lines", "trim_whitespace"],
+\}
+
+let g:ale_fix_on_save=1
+
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" Completion
+" call deoplete#custom#option("source", {
+" \   '_': ['ale'],
+" \})
+let g:alie_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
