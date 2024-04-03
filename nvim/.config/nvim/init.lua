@@ -1,14 +1,17 @@
-print("Welcome in Neovim, " .. os.getenv("USER") .. " !")
+-- Neovim 0.9 configuration
 
-local load_module = function(name)
-    local status_ok, err = pcall(require, name)
-
+local load_module = function(mod)
+    local status_ok, err = pcall(require, mod)
     if not status_ok then
-        print("Error loading")
+        print("Error loading module" .. mod)
         print(err)
     end
 end
 
-load_module("naka.options")
-load_module("naka.keymaps")
-load_module("naka.plugins")
+local user = os.getenv("USER")
+
+print("Hello " .. user)
+
+load_module("user.options")
+load_module("user.utils")
+load_module("user.keymaps")
