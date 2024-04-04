@@ -11,4 +11,11 @@ return {
         commit = "dbfc1c34bed415906395db8303c71039b3a3ffb4",
         opts = {}
     },
+
+    -- icons
+    {
+        "nvim-tree/nvim-web-devicons",
+        commit = "3ee60deaa539360518eaab93a6c701fe9f4d82ef",
+        opts = {}
+    }
 }
