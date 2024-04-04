@@ -12,6 +12,7 @@ local user = os.getenv("USER")
 
 print("Hello " .. user)
 
-load_module("user.options")
-load_module("user.utils")
-load_module("user.keymaps")
+load_module("naka.options")
+load_module("naka.utils")
+load_module("naka.keymaps")
+load_module("naka.plugin_manager")

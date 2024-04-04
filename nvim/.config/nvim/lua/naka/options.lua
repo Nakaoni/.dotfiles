@@ -6,6 +6,7 @@ options = {
 
     -- number lines
     number = true,
+    relativenumber = true,
     numberwidth = 4,
 
     -- chars to remove
