@@ -47,7 +47,9 @@ options = {
     clipboard = "unnamedplus",
 
     -- global status line
-    laststatus = 3
+    laststatus = 3,
+
+    termguicolors = true,
 }
 
 
