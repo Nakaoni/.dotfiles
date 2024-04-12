@@ -19,6 +19,10 @@ return {
             "saadparwaiz1/cmp_luasnip",
             commit = "05a9ab28b53f71d1aece421ef32fee2cb857a843",
         },
+        {
+            "hrsh7th/cmp-nvim-lsp-signature-help",
+            commit = "3d8912ebeb56e5ae08ef0906e3a54de1c66b92f1",
+        },
     },
     config = function()
         local cmp = require("cmp")
@@ -31,10 +35,10 @@ return {
                     luasnip.lsp_expand(args.body)
                 end,
             },
-            -- completion = { completeopt = "menu,menuone,noinsert"},
+            completion = { completeopt = "menu,menuone,noselect" },
             mapping = cmp.mapping.preset.insert({
-                ["<C-n>"] = cmp.mapping.select_next_item(),
-                ["<C-p>"] = cmp.mapping.select_prev_item(),
+                ["<Tab>"] = cmp.mapping.select_next_item(),
+                ["<S-Tab>"] = cmp.mapping.select_prev_item(),
                 ["<C-b>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
                 ["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -50,11 +54,13 @@ return {
                     end
                 end, { "i", "s" }),
             }),
-            sources = {
+            sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
-                { name = "buffer" },
-            },
+                { name = "nvim_lsp_signature_help" },
+            }, {
+                name = "buffer",
+            }),
         })
     end,
 }
