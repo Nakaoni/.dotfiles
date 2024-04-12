@@ -20,6 +20,11 @@ return {
             version = "^v2",
             opts = {},
         },
+        {
+            "j-hui/fidget.nvim",
+            version = "^v1",
+            opts = {},
+        },
     },
     config = function()
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -44,9 +49,15 @@ return {
             end,
         })
 
-        local capabilites = vim.lsp.protocol.make_client_capabilities()
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
         local servers = {
-            lua_ls = {},
+            lua_ls = {
+                completion = {
+                    callSnippet = "Replace",
+                },
+            },
         }
 
         local ensure_installed = vim.tbl_keys(servers)
@@ -64,7 +75,7 @@ return {
             handlers = {
                 function(server_name)
                     local server = servers[server_name] or {}
-                    server.capabilites = vim.tbl_deep_extend("force", {}, capabilites, server.capabilites or {})
+                    server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilites or {})
                     local lspconfig = require("lspconfig")
                     lspconfig[server_name].setup(server)
                 end,
