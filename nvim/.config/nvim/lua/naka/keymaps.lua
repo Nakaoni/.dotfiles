@@ -30,11 +30,11 @@ vim.keymap.set("n", "<leader>q", ":bdelete<CR>", { desc = "Close current buffer"
 vim.keymap.set("n", "<leader>Q", ":bdelete!<CR>", { desc = "Close current buffer without saving" })
 
 -- Move text
-vim.keymap.set("n", "<A-j>", "<Esc>:m .+1<CR>", { desc = "Move text up" })
-vim.keymap.set("n", "<A-k>", "<Esc>:m .-2<CR>", { desc = "Move text down" })
-
-vim.keymap.set("v", "<A-j>", ":m .+1<CR>", { desc = "Move selection up" })
-vim.keymap.set("v", "<A-k>", ":m .-2<CR>", { desc = "Move selection down" })
+-- vim.keymap.set("n", "<A-j>", "<Esc>:m .+1<CR>", { desc = "Move text up" })
+-- vim.keymap.set("n", "<A-k>", "<Esc>:m .-2<CR>", { desc = "Move text down" })
+--
+-- vim.keymap.set("v", "<A-j>", ":m .+1<CR>", { desc = "Move selection up" })
+-- vim.keymap.set("v", "<A-k>", ":m .-2<CR>", { desc = "Move selection down" })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
