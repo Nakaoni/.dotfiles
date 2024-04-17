@@ -11,7 +11,7 @@ return {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
         commit = "dbfc1c34bed415906395db8303c71039b3a3ffb4",
-        opts = {}
+        opts = {},
     },
 
     -- icons
@@ -22,5 +22,11 @@ return {
         priority = 998,
         opts = {},
         enabled = vim.g.have_nerd_font,
-    }
+    },
+
+    -- auto tab vs space
+    {
+        "tpope/vim-sleuth",
+        commit = "1cc4557420f215d02c4d2645a748a816c220e99b",
+    },
 }

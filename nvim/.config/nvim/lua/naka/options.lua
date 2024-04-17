@@ -1,6 +1,6 @@
 -- :h options
 
-options = {
+local options = {
     -- file encoding
     fileencoding = "utf-8",
 
@@ -11,7 +11,7 @@ options = {
 
     -- chars to remove
     list = true,
-    lcs = "tab: >,trail:~,nbsp:+",
+    lcs = "tab:> ,trail:~,nbsp:+",
 
     -- tab behavior
     expandtab = true,
@@ -52,8 +52,6 @@ options = {
     termguicolors = true,
 }
 
-
 for option in pairs(options) do
     vim.opt[option] = options[option]
 end
-
