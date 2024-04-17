@@ -11,7 +11,7 @@ local options = {
 
     -- chars to remove
     list = true,
-    lcs = "tab:> ,trail:~,nbsp:+",
+    lcs = "tab:» ,trail:~,nbsp:+",
 
     -- tab behavior
     expandtab = true,
