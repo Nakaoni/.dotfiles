@@ -1,4 +1,4 @@
--- Neovim 0.9 configuration
+-- Neovim 0.10 configuration
 
 local load_module = function(mod)
     local status_ok, err = pcall(require, mod)
@@ -15,4 +15,8 @@ print("Hello " .. user)
 load_module("naka.options")
 load_module("naka.utils")
 load_module("naka.keymaps")
-load_module("naka.plugin_manager")
+load_module("naka.keymaps")
+
+-- Plugin Manager + Dependancies
+load_module("naka.deps.lazy")
+
