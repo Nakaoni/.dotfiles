@@ -8,4 +8,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end
 })
 
-vim.g.have_nerd_font = true
+vim.cmd("colorscheme habamax")

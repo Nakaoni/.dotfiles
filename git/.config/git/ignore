@@ -1,0 +1,6 @@
+.phpactor.json
+.idea
+/**/user.ini
+/**/cypress/**/*.js
+routes.js
+/**/.DS_Store
