@@ -1,3 +1,4 @@
-planetscale/
 .gitconfig
 .zshenv
+zsh/.config/zsh/.zsh_history
+zsh/.config/zsh/private/*

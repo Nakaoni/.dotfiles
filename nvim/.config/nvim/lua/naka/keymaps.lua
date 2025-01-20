@@ -2,6 +2,11 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Execute in place lua code
+vim.keymap.set("n", "<leader><leader>s", ":source %<CR>", { desc = "[S]ource current file" })
+vim.keymap.set("n", "<leader>x", ":.lua<CR>", { desc = "[E]xecute Lua" })
+vim.keymap.set("v", "<leader>x", ":lua<CR>", { desc = "[E]xecute Lua" })
+
 -- Explorer
 vim.keymap.set("n", "<leader>m", ":Ex<CR>", { desc = "Open Explorer [M]enu" })
 
