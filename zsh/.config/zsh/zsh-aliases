@@ -1,8 +1,5 @@
 #!/bin/sh
 
-#alias dir='dir --color=auto'
-#alias vdir='vdir --color=auto'
-
 # grep
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -15,7 +12,6 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # nvim
-alias nvimrc="nvim ~/.config/nvim"
 alias vim=nvim
 
 # git

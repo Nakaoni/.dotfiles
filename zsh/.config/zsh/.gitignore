@@ -2,3 +2,4 @@ plugins/
 .zcompdump
 .zcompcache
 private/
+.zsh_history
