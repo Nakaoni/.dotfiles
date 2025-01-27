@@ -15,8 +15,7 @@ print("Hello " .. user)
 load_module("naka.options")
 load_module("naka.utils")
 load_module("naka.keymaps")
-load_module("naka.keymaps")
+load_module("naka.colorscheme")
 
 -- Plugin Manager + Dependancies
-load_module("naka.deps.lazy")
-
+load_module("naka.vendor.lazy")
