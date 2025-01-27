@@ -6,7 +6,7 @@ return {
         opts = {
             keymap = {
                 preset = "default",
-                ["<TAB>"] = { "accept" },
+                -- ["<TAB>"] = { "accept" },
             },
             appearance = {
                 use_nvim_cmp_as_default = true,

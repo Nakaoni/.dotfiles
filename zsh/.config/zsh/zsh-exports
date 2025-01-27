@@ -1,3 +1,5 @@
 #!/bin/sh
 
 export EDITOR="nvim"
+
+export PATH="$HOME/programs/bin:$PATH"
