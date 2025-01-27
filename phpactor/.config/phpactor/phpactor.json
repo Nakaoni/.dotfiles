@@ -21,6 +21,12 @@
     "symfony.enabled": true,
     "symfony.xml_path": "%project_root%\/var\/cache\/dev\/App_KernelDevDebugContainer.xml",
     "completion_worse.completor.symfony.enabled": true,
-    "phpunit.enabled": true
+    "phpunit.enabled": true,
+    "indexer.exclude_patterns": [
+        "/vendor/**/Tests/**/*",
+        "/vendor/**/tests/**/*",
+        "/var/cache/**/*",
+        "/vendor/composer/**/*"
+    ]
 }
 

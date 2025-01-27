@@ -11,10 +11,16 @@ return {
                     },
                 },
             },
+            { "saghen/blink.cmp" },
         },
         config = function()
-            require("lspconfig").lua_ls.setup({})
-
+            local capabilities = require('blink.cmp').get_lsp_capabilities()
+            local defaultConfig = {
+                capatibilies = capabilities
+            }
+            require("lspconfig").lua_ls.setup(defaultConfig)
+            require("lspconfig").phpactor.setup(defaultConfig)
+            require("lspconfig").basedpyright.setup(defaultConfig)
 
             vim.api.nvim_create_autocmd("LspAttach", {
                 callback = function(args)

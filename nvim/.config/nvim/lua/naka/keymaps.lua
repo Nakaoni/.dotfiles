@@ -3,12 +3,12 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Execute in place lua code
-vim.keymap.set("n", "<leader><leader>s", ":source %<CR>", { desc = "[S]ource current file" })
+vim.keymap.set("n", "<leader><leader>x", ":source %<CR>", { desc = "[S]ource current file" })
 vim.keymap.set("n", "<leader>x", ":.lua<CR>", { desc = "[E]xecute Lua" })
 vim.keymap.set("v", "<leader>x", ":lua<CR>", { desc = "[E]xecute Lua" })
 
 -- Explorer
-vim.keymap.set("n", "<leader>m", ":Ex<CR>", { desc = "Open Explorer [M]enu" })
+-- vim.keymap.set("n", "<leader>m", ":Ex<CR>", { desc = "Open Explorer [M]enu" })
 
 -- Window split creation
 vim.keymap.set("n", "<leader>h", ":split<CR>", { desc = "Split the window [H]orizontally" })
@@ -44,9 +44,6 @@ vim.keymap.set("n", "<A-k>", "<Esc>:m .-2<CR>", { desc = "Move text down" })
 vim.keymap.set("v", "<A-j>", ":m .+1<CR>", { desc = "Move selection up" })
 vim.keymap.set("v", "<A-k>", ":m .-2<CR>", { desc = "Move selection down" })
 
--- Diagnostic keymaps
--- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
--- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
--- vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
--- vim.keymap.set("n", "<leader>E", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-
+-- Always fix view in the center
+vim.keymap.set("n", "<C-f>", "<C-f>zz")
+vim.keymap.set("n", "<C-b>", "<C-b>zz")

@@ -28,6 +28,11 @@ return {
                     cwd = vim.fn.stdpath("config")
                 })
             end, { desc = "Telescope: [E]dit [N]eovim" })
+            vim.keymap.set("n", "<leader>ez", function()
+                builtin.find_files({
+                    cwd = "$HOME/.config/zsh"
+                })
+            end, { desc = "Telescope: [E]dit [Z]sh" })
         end
     }
 }
