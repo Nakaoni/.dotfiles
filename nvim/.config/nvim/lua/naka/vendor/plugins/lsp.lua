@@ -18,9 +18,13 @@ return {
             local defaultConfig = {
                 capatibilies = capabilities
             }
-            require("lspconfig").lua_ls.setup(defaultConfig)
-            require("lspconfig").phpactor.setup(defaultConfig)
-            require("lspconfig").basedpyright.setup(defaultConfig)
+            require("lspconfig").lua_ls.setup(vim.tbl_deep_extend("force", defaultConfig, {}))
+            require("lspconfig").phpactor.setup(vim.tbl_deep_extend("force", defaultConfig, {}))
+            require("lspconfig").basedpyright.setup(vim.tbl_deep_extend("force", defaultConfig, {}))
+            require("lspconfig").ts_ls.setup(vim.tbl_deep_extend("force", defaultConfig, {}))
+            require("lspconfig").clangd.setup(vim.tbl_deep_extend("force", defaultConfig, {
+                cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=verbose' },
+            }))
 
             vim.api.nvim_create_autocmd("LspAttach", {
                 callback = function(args)

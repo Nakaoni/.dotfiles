@@ -5,11 +5,10 @@ return {
         dependencies = "rafamadriz/friendly-snippets",
         opts = {
             keymap = {
-                preset = "default",
+                preset = "super-tab",
                 -- ["<TAB>"] = { "accept" },
             },
             appearance = {
-                use_nvim_cmp_as_default = true,
                 nerd_font_variant = "mono"
             },
         },

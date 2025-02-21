@@ -1,6 +1,6 @@
 -- remap leader keymap
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = " "
 
 -- Execute in place lua code
 vim.keymap.set("n", "<leader><leader>x", ":source %<CR>", { desc = "[S]ource current file" })
