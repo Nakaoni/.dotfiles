@@ -16,7 +16,10 @@ return {
                 pickers = {
                     find_files = {
                         theme = "ivy",
-                    }
+                    },
+                    live_grep = {
+                        theme = "ivy",
+                    },
                 },
                 extensions = {
                     fzf = {},
@@ -47,14 +50,17 @@ return {
             vim.keymap.set("n", "<leader>fa", function()
                 builtin.find_files({
                     hidden = true,
+                    no_ignore = true,
                 })
-            end, { desc = "Telescope: [E]dit [N]eovim" })
+            end, { desc = "Telescope: [F]ind [A]ll" })
 
             vim.keymap.set("n", "<leader>fp", function()
                 builtin.find_files({
                     cwd = vim.fs.joinpath(vim.fn.stdpath("config"), "lazy")
                 })
             end, { desc = "Telescope: [E]dit [N]eovim" })
+
+            vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Telescope: [F]ind [K]eymaps" })
 
             -- Special keymap
             require("naka.vendor.telescope.multigrep").setup()
