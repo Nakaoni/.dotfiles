@@ -35,17 +35,11 @@ return {
 
             vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope: [f]ind [b]uffers" })
 
-            vim.keymap.set("n", "<leader>en", function()
+            vim.keymap.set("n", "<leader>ec", function()
                 builtin.find_files({
                     cwd = vim.fn.stdpath("config")
                 })
-            end, { desc = "Telescope: [E]dit [N]eovim" })
-
-            vim.keymap.set("n", "<leader>ez", function()
-                builtin.find_files({
-                    cwd = "$HOME/.config/zsh"
-                })
-            end, { desc = "Telescope: [E]dit [Z]sh" })
+            end, { desc = "Telescope: [E]dit [C]onfig" })
 
             vim.keymap.set("n", "<leader>fa", function()
                 builtin.find_files({
