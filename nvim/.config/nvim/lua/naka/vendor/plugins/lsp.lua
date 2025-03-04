@@ -25,6 +25,7 @@ return {
             require("lspconfig").clangd.setup(vim.tbl_deep_extend("force", defaultConfig, {
                 cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=verbose' },
             }))
+            require("lspconfig").gopls.setup(vim.tbl_deep_extend("force", defaultConfig, {}))
 
             vim.api.nvim_create_autocmd("LspAttach", {
                 callback = function(args)

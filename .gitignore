@@ -1,4 +1,5 @@
 .gitconfig
 .zshenv
 zsh/.config/zsh/.zsh_history
+zsh/.config/zsh/.zsh_sessions
 zsh/.config/zsh/private/*
