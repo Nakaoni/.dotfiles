@@ -37,7 +37,8 @@ return {
 
             vim.keymap.set("n", "<leader>ec", function()
                 builtin.find_files({
-                    cwd = vim.fn.stdpath("config")
+                    cwd = "$HOME/.dotfiles/",
+                    hidden = true,
                 })
             end, { desc = "Telescope: [E]dit [C]onfig" })
 

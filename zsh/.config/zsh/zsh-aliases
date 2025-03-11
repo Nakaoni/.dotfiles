@@ -23,4 +23,4 @@ alias gits="git status"
 alias gitl="git log"
 alias gitc2ane="git commit -a --amend --no-edit"
 alias gitpoh="git push -u origin HEAD"
-
+alias gitclean="git branch | rg -v \"master|develop\" | xargs git branch -D"

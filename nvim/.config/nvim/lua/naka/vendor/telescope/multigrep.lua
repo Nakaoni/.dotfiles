@@ -23,7 +23,7 @@ local live_multigrep = function(opts)
             end
 
             if split[2] then
-                table.insert(args, "-g")
+                -- table.insert(args, "-g")
                 table.insert(args, split[2])
             end
 
