@@ -25,6 +25,7 @@ return {
             require("lspconfig").clangd.setup(vim.tbl_deep_extend("force", defaultConfig, {
                 cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=verbose' },
             }))
+            require("lspconfig").java_language_server.setup(vim.tbl_deep_extend("force", defaultConfig, {}))
             require("lspconfig").gopls.setup(vim.tbl_deep_extend("force", defaultConfig, {}))
 
             vim.api.nvim_create_autocmd("LspAttach", {
@@ -38,7 +39,9 @@ return {
                         vim.api.nvim_create_autocmd("BufWritePre", {
                             buffer = args.buf,
                             callback = function()
-                                vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+                                local params = vim.lsp.util.make_range_params()
+                                params.context = { only = { "source.organizeImports" } }
+                                vim.lsp.buf.format({ bufnr = args.buf, id = client.id, async = false })
                             end
                         })
                     end
